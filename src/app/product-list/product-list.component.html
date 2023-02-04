@@ -1,11 +1,14 @@
 <h2>Products</h2>
 
-<!-- 
-  With *ngFor, the <div> repeats for each product in the list.
+<!-- With *ngFor, the <div> repeats for each product in the   list.
   Structural directives shape or reshape the DOM's structure, by adding, removing, and manipulating elements. For more information about structural directives, see Structural directives. -->
 <div *ngFor="let product of products">
   <h3>
-    <a [title]="product.name + ' details'">
+    <!-- The RouterLink directive helps you customize the anchor element. In this case, the route, or URL, contains one fixed segment, /products. The final segment is variable, inserting the id property of the current product. -->
+    <a
+      [title]="product.name + ' details'"
+      [routerLink]="['/products', product.id]"
+    >
       {{ product.name }}
     </a>
   </h3>
